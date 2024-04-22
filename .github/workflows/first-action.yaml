@@ -16,8 +16,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{matrix.node-version}}
-    - name: Change Directory
-      run: cd .. 
-      run: cd src
-    - name: run code
-      run: node addition.js
+    - name: Change Directory and run code
+      run: cd .. $$ cd src && node addition.js
+     
