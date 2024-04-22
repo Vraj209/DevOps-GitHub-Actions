@@ -1,0 +1,23 @@
+name: First Github Action
+
+on: [push]
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: ['20.12.1']
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up node 
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{matrix.node-version}}
+    - name: Change Directory
+      run: cd .. 
+      run: cd src
+    - name: run code
+      run: node addition.js
